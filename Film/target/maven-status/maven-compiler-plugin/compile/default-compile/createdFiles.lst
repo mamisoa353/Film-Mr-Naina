@@ -1,0 +1,10 @@
+hibernate\interfaceDao\InterfaceDao.class
+com\idealy\articles\model\Personnage.class
+com\idealy\articles\model\SceneDetail.class
+com\idealy\articles\controller\FilmController.class
+com\idealy\articles\model\Scene.class
+com\idealy\articles\model\Film.class
+com\idealy\articles\model\Scene_Personnage.class
+com\idealy\articles\model\Plateau.class
+com\idealy\articles\model\SceneDescription.class
+hibernate\dao\HibernateDao.class

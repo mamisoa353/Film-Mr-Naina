@@ -77,9 +77,11 @@ public class FilmController {
         sc.setPhoto(photo);
         dao.create(sc);
 
-        model.addAttribute("Detail", dao.getSuggestion(SceneDescription.class, idfilm));
+        model.addAttribute("ListesScene", dao.getDetailFilm(Scene.class, idfilm));
 
-        return "AddScene";
+        model.addAttribute("id", String.valueOf(idfilm));
+
+        return "DetailFilm";
 
     }
 

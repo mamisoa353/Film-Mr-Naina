@@ -11,6 +11,15 @@
 
     List<Scene> sc = (List<Scene>) request.getAttribute("ListesScene");
     System.out.println("Size = ");
+
+    String id = request.getParameter("id");
+    if (id == null) {
+        System.out.println(request.getAttribute("id"));
+        id = (request.getAttribute("id").toString());
+        System.out.println("iddd" + id);
+    }
+
+
 %>
 <!doctype html>
 <html class="h-100" lang="en">
@@ -111,12 +120,12 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fs-5" href="Planing?id=<%=request.getParameter("id")%>" aria-label="A sample content page">
+                        <a class="nav-link fs-5" href="Planing?id=<%=id%>" aria-label="A sample content page">
                             Planing
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fs-5" href="AddScene?id=<%=request.getParameter("id")%>" aria-label="A sample content page">
+                        <a class="nav-link fs-5" href="AddScene?id=<%=id%>" aria-label="A sample content page">
                             Insert Scene
                         </a>
                     </li>
@@ -158,7 +167,7 @@
                             </p>
                         </div>
                         <form action="AddScene" method="POST">
-                            <input type="hidden" name="idfilm" value="<%=request.getParameter("id")%>">
+                            <input type="hidden" name="idfilm" value="<%=id %>">
                             <p>Titre scene :<input type="text" name="titre"></p>
                             <p>Numero scene :<input type="text" name="numero"></p>
                             <p>Resume scene :<input type="text" name="resume"></p>

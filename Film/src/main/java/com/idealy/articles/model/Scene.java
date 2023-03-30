@@ -26,8 +26,9 @@ public class Scene {
     private String resume;
     private String photo;
     private int idFilm;
-
-  
+    private int status;
+    @Transient
+    private String stat;
 
     public Scene() {
     }
@@ -56,7 +57,6 @@ public class Scene {
         this.numero = numero;
     }
 
-
     public String getResume() {
         return resume;
     }
@@ -79,6 +79,32 @@ public class Scene {
 
     public void setIdFilm(int idFilm) {
         this.idFilm = idFilm;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+        if (status == 0) {
+            this.setStat("Non planifié");
+        }
+        if (status == 1) {
+            this.setStat("Planifié");
+        }
+        if (status == 2) {
+            this.setStat("Terminé");
+        }
+
+    }
+
+    public String getStat() {
+        return stat;
+    }
+
+    public void setStat(String stat) {
+        this.stat = stat;
     }
 
 }

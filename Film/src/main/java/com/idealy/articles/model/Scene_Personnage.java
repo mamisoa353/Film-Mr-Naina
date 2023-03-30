@@ -27,6 +27,7 @@ public class Scene_Personnage {
     private String humeur;
     private Time durree;
     private int idPlateau;
+    private int status;
 
     public int getIdScene_Personnage() {
         return idScene_Personnage;
@@ -68,7 +69,6 @@ public class Scene_Personnage {
         this.humeur = humeur;
     }
 
-   
     public int getIdPlateau() {
         return idPlateau;
     }
@@ -83,6 +83,14 @@ public class Scene_Personnage {
 
     public void setDurree(Time durree) {
         this.durree = durree;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
 }

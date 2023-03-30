@@ -3,13 +3,15 @@
     Created on : 28 févr. 2023, 23:21:16
     Author     : 26132
 --%>
-
+coucou
+<%@page import="java.sql.Date"%>
+<%@page import="com.idealy.articles.model.Planing"%>
 <%@page import="com.idealy.articles.model.SceneDescription"%>
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
-    List<SceneDescription> description = (List<SceneDescription>) request.getAttribute("Detail");
+    List<Planing> description = (List<Planing>) request.getAttribute("Detail");
 
 %>
 <!DOCTYPE html>
@@ -109,7 +111,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fs-5" href="Planing?id=<%=request.getParameter("id") %>" aria-label="A sample content page">
+                        <a class="nav-link fs-5" href="Planing?id=<%=request.getParameter("id")%>" aria-label="A sample content page">
                             Planing
                         </a>
                     </li>
@@ -123,21 +125,31 @@
 
         <main>
             <div class="container">
-                 <% for (int i = 0; i < description.size(); i++) {%>
-                <div class="row d-flex justify-content-center py-vh-5 pb-0">
-                    <div class="col-12 col-lg-10 col-xl-8">
-                        <div class="row d-flex align-items-start" data-aos="fade-right">
-                            <div class="col-12 col-lg-7">
-                                <h2 class="h5 pt-5"><%=i+1+"-"%><%=description.get(i).getNomplateau()%>:</h2>
-                                <p class="text-secondary">Duree :<%=description.get(i).getTotal()%></p>
-                                <p class="text-secondary">Nombre personnage :<%=description.get(i).getNbPerso()%></p>
-                                <p class="text-secondary">nombre scene : <%=description.get(i).getNbrScene() %></p>
-                                <a href="DetailPlateau?idfilm=<%=description.get(i).getFilmidfilm() %>&idplateau=<%=description.get(i).getIdplateau() %>"><button style="border-radius:14px;background-color: white;color: black;">Detail</button></a>
+                <form method="POST" action="ValiderPlaning">
+
+
+                    <% for (int i = 0; i < description.size(); i++) {%>
+                    <div class="row d-flex justify-content-center py-vh-5 pb-0">
+                        <div class="col-12 col-lg-10 col-xl-8">
+                            <div class="row d-flex align-items-start" data-aos="fade-right">
+                                <div class="col-12 col-lg-7">
+                                    <% // out.println("id=" + description.get(i).getId() + "idperso= " + description.get(i).getIdpersonnage() + "idplateau=" + description.get(i).getIdplateau() + "date=" + new Date(description.get(i).getDateprepa().getTime()));%>
+                                    <% // out.println(description.get(i).getId() + "//" + description.get(i).getIdpersonnage() + "//" + description.get(i).getIdplateau() + "//" + new Date(description.get(i).getDateprepa().getTime()));%>
+                                    <h2 class="h5 pt-5"><%=i + 1 + "-"%><%=description.get(i).getNomplateau()%>:<input type="checkbox" class="form-check-input"  checked="true" value="<%=description.get(i).getId() + "//" + description.get(i).getIdpersonnage() + "//" + description.get(i).getIdplateau() + "//" + new Date(description.get(i).getDateprepa().getTime())%>" name="idScene" > </h2>
+                                    <p class="text-secondary">Id :<%=description.get(i).getId()%></p>
+                                    <p class="text-secondary">Duree :<%=description.get(i).getTotal()%></p>
+                                    <p class="text-secondary">Date :<%=description.get(i).getDateprepa()%></p>
+                                    <p class="text-secondary">id personnage :<%=description.get(i).getIdpersonnage()%></p>
+                                    <p class="text-secondary">nombre scene : <%=description.get(i).getNbrScene()%></p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <% } %>
+                    <% }%>
+                    <button style="border-radius:14px;background-color: white;color: black;" type="submit" >Valider</button>
+                </form>
+
+                <a href="ValiderPlaning"></a>
             </div>
         </main>
         <footer class="bg-black border-top border-dark">

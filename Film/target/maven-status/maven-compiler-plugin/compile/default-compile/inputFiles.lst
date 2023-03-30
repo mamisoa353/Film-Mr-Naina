@@ -1,10 +1,16 @@
 D:\itu\S5\Mr\hibernate 2\NetBeansProjects\Film\src\main\java\hibernate\interfaceDao\InterfaceDao.java
+D:\itu\S5\Mr\hibernate 2\NetBeansProjects\Film\src\main\java\com\idealy\articles\model\TimestampClass.java
+D:\itu\S5\Mr\hibernate 2\NetBeansProjects\Film\src\main\java\com\idealy\articles\model\TimeClass.java
 D:\itu\S5\Mr\hibernate 2\NetBeansProjects\Film\src\main\java\com\idealy\articles\model\Plateau.java
 D:\itu\S5\Mr\hibernate 2\NetBeansProjects\Film\src\main\java\hibernate\dao\HibernateDao.java
 D:\itu\S5\Mr\hibernate 2\NetBeansProjects\Film\src\main\java\com\idealy\articles\controller\FilmController.java
-D:\itu\S5\Mr\hibernate 2\NetBeansProjects\Film\src\main\java\com\idealy\articles\model\Scene.java
+D:\itu\S5\Mr\hibernate 2\NetBeansProjects\Film\src\main\java\com\idealy\articles\model\indispoActeur.java
 D:\itu\S5\Mr\hibernate 2\NetBeansProjects\Film\src\main\java\com\idealy\articles\model\SceneDescription.java
+D:\itu\S5\Mr\hibernate 2\NetBeansProjects\Film\src\main\java\com\idealy\articles\model\Planing.java
+D:\itu\S5\Mr\hibernate 2\NetBeansProjects\Film\src\main\java\com\idealy\articles\model\Scene.java
 D:\itu\S5\Mr\hibernate 2\NetBeansProjects\Film\src\main\java\com\idealy\articles\model\SceneDetail.java
 D:\itu\S5\Mr\hibernate 2\NetBeansProjects\Film\src\main\java\com\idealy\articles\model\Scene_Personnage.java
 D:\itu\S5\Mr\hibernate 2\NetBeansProjects\Film\src\main\java\com\idealy\articles\model\Film.java
+D:\itu\S5\Mr\hibernate 2\NetBeansProjects\Film\src\main\java\com\idealy\articles\model\indispoPlateau.java
 D:\itu\S5\Mr\hibernate 2\NetBeansProjects\Film\src\main\java\com\idealy\articles\model\Personnage.java
+D:\itu\S5\Mr\hibernate 2\NetBeansProjects\Film\src\main\java\com\idealy\articles\model\Tournage.java

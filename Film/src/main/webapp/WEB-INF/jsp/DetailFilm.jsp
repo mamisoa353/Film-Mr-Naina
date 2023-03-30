@@ -129,6 +129,16 @@
                             Insert Scene
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-5" href="ScenePlanifie?idScene=<%=id%>" aria-label="A sample content page">
+                            Liste Scene planifie
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-5" href="map.html" aria-label="A sample content page">
+                            Map plateau
+                        </a>
+                    </li>
                 </ul>
                 <a href="https://templatedeck.com/klar-html-template.html" aria-label="Download this template"
                    class="btn btn-outline-light">

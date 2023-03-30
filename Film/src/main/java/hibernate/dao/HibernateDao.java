@@ -106,19 +106,42 @@ public class HibernateDao implements InterfaceDao {
 
         results = session.createCriteria(clazz)
                 .add(Restrictions.and(Restrictions.eq("filmidfilm", idfilm), Restrictions.eq("idplateau", idplateau))).list();
+
         session.close();
         return results;
     }
-    
-    public <T> List<T> getSuggestion(Class<T> clazz, int idfilm) {
+
+    public <T> List<T> getSuggestion(Class<T> clazz, int idfilm, String[] liste) {
+        List<T> results;
+        Session session = sessionFactory.openSession();
+        String req = "";
+        for (int i = 0; i < liste.length; i++) {
+            if (i == 0) {
+                req += " sceneidscene=" + liste[i];
+            } else {
+                req += " or sceneidscene=" + liste[i];
+            }
+
+        }
+        System.out.println("requete = " + req);
+
+        results = session.createCriteria(clazz)
+                .add(Restrictions.and(Restrictions.eq("filmidfilm", idfilm), Restrictions.sqlRestriction(req))).list();
+        session.close();
+        return results;
+    }
+
+    public <T> List<T> indispo(Class<T> clazz, Date debut, Date fin) {
         List<T> results;
         Session session = sessionFactory.openSession();
 
         results = session.createCriteria(clazz)
-                .add(Restrictions.and(Restrictions.eq("filmidfilm", idfilm))).list();
+                .add(Restrictions.between("date", debut, fin)).list();
+
         session.close();
         return results;
     }
+
     public <T> List<T> getDetailFilm(Class<T> clazz, int idfilm) {
         List<T> results;
         Session session = sessionFactory.openSession();
@@ -128,7 +151,7 @@ public class HibernateDao implements InterfaceDao {
         session.close();
         return results;
     }
-    
+
     public <T> List<T> getDetailScene(Class<T> clazz, int idScene) {
         List<T> results;
         Session session = sessionFactory.openSession();
@@ -214,6 +237,15 @@ public class HibernateDao implements InterfaceDao {
         return count;
     }
 
+    public <T> List<T> verfi(Class<T> clazz, int id, Date date) {
+        List<T> results;
+        Session session = sessionFactory.openSession();
+        results = (List<T>) session.createCriteria(clazz)
+                .add(Restrictions.and(Restrictions.sqlRestriction("dateprepa::date= " + date), Restrictions.eq("id", id)));
+        session.close();
+        return results;
+    }
+
     public <T> List<T> AuteurAritcle(Class<T> clazz, int offset, int size, int status, int idAuteur) {
         List<T> results;
         Session session = sessionFactory.openSession();
@@ -223,6 +255,16 @@ public class HibernateDao implements InterfaceDao {
                 .addOrder(Order.desc("importance"))
                 .setFirstResult(offset)
                 .setMaxResults(size).list();
+        session.close();
+        return results;
+    }
+
+    public <T> List<T> ListPlanifie(Class<T> clazz, int id) {
+        List<T> results;
+        Session session = sessionFactory.openSession();
+
+        results = session.createCriteria(clazz)
+                .add(Restrictions.eq("status", 1)).list();
         session.close();
         return results;
     }
